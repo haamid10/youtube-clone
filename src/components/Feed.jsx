@@ -1,8 +1,15 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 import {Box , Stack, Typography} from '@mui/material'
+import { FromApi } from '../utils/fetchFromApi'
 import { Sidebar,Vidoes } from '.'
 
 const Feed = () => {
+
+  const [selectedCategory , setSelectedCategory]= useState('New')
+
+   useEffect (()=>{
+     FromApi(`search?part=snippet&q=${setSelectedCategory}`)
+   },[])
   return (
     <Stack sx={{ flexDirection: {sx:'column' ,md: 'row'}}}>
       <Box 
