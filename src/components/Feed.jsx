@@ -1,6 +1,6 @@
 import {useState,useEffect} from 'react'
 import {Box , Stack, Typography} from '@mui/material'
-import { fetchFromApi } from '../utils/fetchFromApi'
+import { fetchFromAPI, fetchFromAPII } from '../utils/fetchFromApi.js'
 import { Sidebar , Vidoes } from '.'
 
 const Feed = () => {
@@ -8,7 +8,7 @@ const Feed = () => {
   const [selectedCategory , setSelectedCategory]= useState('New')
 
    useEffect (()=>{
-    fetchFromApi(`search?part=snippet&q=${setSelectedCategory}`)
+    fetchFromAPI (`search?part=snippet&q=${setSelectedCategory}`)
    },[selectedCategory])
   return (
     <Stack sx={{ flexDirection: {sx:'column' ,md: 'row'}}}>
